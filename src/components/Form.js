@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Form(props) {
-    const { values, update, submit, errors, disabled } = props;
+    const { values, update, submit, errors } = props;
 
     const onChange = (evt) => {
         const {name, value, checked, type} = evt.target;
@@ -13,6 +13,7 @@ export default function Form(props) {
         evt.preventDefault();
         submit();
     };
+
 
     return (
         <form className = 'form-container' onSubmit={onSubmit}>
@@ -84,33 +85,33 @@ export default function Form(props) {
                         <input 
                         type='checkbox'
                         name='Pepperoni'
-                        checked={values.pepperoni}
+                        checked={values.toppings}
                         onChange={onChange}
                         />
                         <input 
                         type='checkbox'
                         name='Sausage'
-                        checked={values.sausage}
+                        checked={values.toppings}
                         onChange={onChange}
                         />
                         <input 
                         type='checkbox'
                         name='Onions'
-                        checked={values.onions}
+                        checked={values.toppings}
                         onChange={onChange}
                         />
                         
                         <input 
                         type='checkbox'
                         name='Spinach'
-                        checked={values.spinach}
+                        checked={values.toppings}
                         onChange={onChange}
                         />
                     </label>
                     <label>
                         Special Instructions
                         <input 
-                        value={values.special}
+                        value={values.toppings}
                         onChange={onChange}
                         name='special'
                         type='text'

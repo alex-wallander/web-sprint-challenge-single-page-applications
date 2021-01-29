@@ -27,10 +27,18 @@ export default function Form(props) {
                     <div>{errors.size}</div>
                     <div>{errors.sauce}</div>
                     <div>{errors.toppings}</div>
-                    <div>{errors.gluten}</div>
                     <div>{errors.special}</div>
                 </div>
                 <div className='form-inputs'>
+                    <label>
+                        Build Your Own Pizza
+                        <input 
+                        value={values.name}
+                        onChange={onChange}
+                        name='name'
+                        type='text'
+                        />
+                    </label>
                     <label>
                         Choice of Size
                         <select name='size' value={values.size} onChange={onChange}>
@@ -87,12 +95,6 @@ export default function Form(props) {
                         />
                         <input 
                         type='checkbox'
-                        name='Grilled Chicken'
-                        checked={values.chicken}
-                        onChange={onChange}
-                        />
-                        <input 
-                        type='checkbox'
                         name='Onions'
                         checked={values.onions}
                         onChange={onChange}
@@ -100,23 +102,8 @@ export default function Form(props) {
                         
                         <input 
                         type='checkbox'
-                        name='Black Olives'
-                        checked={values.olives}
-                        onChange={onChange}
-                        />
-                        <input 
-                        type='checkbox'
                         name='Spinach'
                         checked={values.spinach}
-                        onChange={onChange}
-                        />
-                    </label>
-                    <label>
-                        Choice of Substitute
-                        <input 
-                        type='checkbox'
-                        name='Gluten Free Crust(+ $1.00)'
-                        checked={values.gluten}
                         onChange={onChange}
                         />
                     </label>
@@ -129,6 +116,7 @@ export default function Form(props) {
                         type='text'
                         />
                     </label>
+                    <button className='submitBtn'>Add to Order</button>
                 </div>
 
 

@@ -1,12 +1,12 @@
 import React from 'react'
 
 export default function Form(props) {
-    const { values, update, submit, errors } = props;
+    const { values, change, submit, errors } = props;
 
     const onChange = (evt) => {
-        const {name, value, checked, type} = evt.target;
+        const {name, value, type, checked} = evt.target;
         const valueToUse = type === 'checkbox' ? checked : value;
-        update(name, valueToUse);
+        change(name, valueToUse);
     };
 
     const onSubmit = (evt) => {
@@ -19,7 +19,7 @@ export default function Form(props) {
         <form className = 'form-container' onSubmit={onSubmit}>
             <div className='form-div'>
                 <div className='img-container'>
-                <h2>Build Your Own Pizza</h2>
+                <h2 className='img-head'>Build Your Own Pizza</h2>
                 <img className='form-img' src='https://www.biggerbolderbaking.com/wp-content/uploads/2019/07/15-Minute-Pizza-WS-Thumbnail.png' alt='pizza'/>
                 </div>
 
@@ -27,7 +27,10 @@ export default function Form(props) {
                     <div>{errors.name}</div>
                     <div>{errors.size}</div>
                     <div>{errors.sauce}</div>
-                    <div>{errors.toppings}</div>
+                    <div>{errors.pepperoni}</div>
+                    <div>{errors.sausage}</div>
+                    <div>{errors.onions}</div>
+                    <div>{errors.spinach}</div>
                     <div>{errors.special}</div>
                 </div>
                 <div className='form-inputs'>
@@ -77,44 +80,59 @@ export default function Form(props) {
                         />
                     </label>
                     </div>
+                    <div>
+                        <h2>Add Toppings</h2>
                     <label>
-                        Add Toppings
+                        Pepperoni
                         <input 
                         type='checkbox'
-                        name='Pepperoni'
-                        checked={values.toppings}
+                        name='pepperoni'
+                        checked={values.pepperoni}
                         onChange={onChange}
                         />
+                        </label>
+                        <label>
+                            Sausage
                         <input 
                         type='checkbox'
-                        name='Sausage'
-                        checked={values.toppings}
+                        name='sausage'
+                        checked={values.sausage}
                         onChange={onChange}
                         />
+                        </label>
+                        <label>
+                            Onions
                         <input 
                         type='checkbox'
-                        name='Onions'
-                        checked={values.toppings}
+                        name='onions'
+                        checked={values.onions}
                         onChange={onChange}
                         />
-                        
+                        </label>
+                        <label>
+                            Spinach
                         <input 
                         type='checkbox'
-                        name='Spinach'
-                        checked={values.toppings}
+                        name='spinach'
+                        checked={values.spinach}
                         onChange={onChange}
                         />
                     </label>
+                    </div>
+                    <div>
+                        <h2>Special Instructions</h2>
                     <label>
-                        Special Instructions
                         <input 
-                        value={values.toppings}
+                        value={values.special}
                         onChange={onChange}
                         name='special'
                         type='text'
                         />
                     </label>
+                    </div>
+                    <div>
                     <button className='submitBtn'>Add to Order</button>
+                </div>
                 </div>
 
 

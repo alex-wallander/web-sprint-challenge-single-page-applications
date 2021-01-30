@@ -10,6 +10,12 @@ import './App.css'
 const initialValues = {
   name: '',
   special: '',
+  size: '',
+  pepperoni: false,
+  sausage: false,
+  onions: false,
+  spinach: false,
+  sauce: false,
 }
 
 const initialValueErrors = {
@@ -29,9 +35,10 @@ export default function App() {
 
   const postNewUser = (newUser) => {
     axios
-    .post('https://reqres.in/api/users', newUser)
+    .post('https://reqres.in/api/user', newUser)
     .then(res => {
       setUser([...user, res.data]);
+      console.log(res.data);
       setFormValues(initialValues);
     })
     .catch(err => {
@@ -63,6 +70,9 @@ export default function App() {
     const newUser = {
       name: formValues.name,
       special: formValues.special,
+      size: formValues.size,
+      toppings:['pepperoni', 'sausage', 'onions', 'spinach'].filter(toppings => formValues[toppings]),
+      sauce: ['sauce'].filter(sauce =>formValues[sauce]),
     }
     postNewUser(newUser);
   }

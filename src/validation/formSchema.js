@@ -7,10 +7,18 @@ export default yup.object().shape({
     .min(2, 'Name must have at least 2 characters'),
     size: yup
     .string()
-    .required('Required.'),
-    toppings: yup
-    .string()
-    .required('Choose up to 4.')
-    
+    .oneOf(['10', '14', '16'], 'Please select a size'),
+    pepperoni: yup
+    .boolean(),
+    sausage: yup
+    .boolean(),
+    onions: yup
+    .boolean(),
+    spinach: yup
+    .boolean(),
+    sauce: yup
+    .boolean(), 
+    special: yup
+    .string()   
 
 })

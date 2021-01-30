@@ -31,8 +31,9 @@ export default function Form(props) {
                     <div>{errors.special}</div>
                 </div>
                 <div className='form-inputs'>
+                    <div className='build'>
+                        <h2>Build Your Own Pizza</h2>
                     <label>
-                        Build Your Own Pizza
                         <input 
                         value={values.name}
                         onChange={onChange}
@@ -40,8 +41,10 @@ export default function Form(props) {
                         type='text'
                         />
                     </label>
+                    </div>
+                    <div className='size-div'>
+                        <h2>Choice of Size</h2>
                     <label>
-                        Choice of Size
                         <select name='size' value={values.size} onChange={onChange}>
                             <option value=''>Select</option>
                             <option value='small'>10"</option>
@@ -49,8 +52,11 @@ export default function Form(props) {
                             <option value='large'>16"</option>
                         </select>
                     </label>
+                    </div>
+                    <div>
+                        <h2 className='sauce'>Choice of Sauce</h2>
                     <label>
-                        Choice of Sauce
+                        Original Red
                         <input 
                         type='radio'
                         name='sauce'
@@ -58,6 +64,10 @@ export default function Form(props) {
                         checked={values.sauce === 'Original Red'}
                         onChange={onChange}
                         />
+                        </label>
+
+                        <label>
+                        Garlic Ranch
                         <input 
                         type='radio'
                         name='sauce'
@@ -65,21 +75,8 @@ export default function Form(props) {
                         checked={values.sauce === 'Garlic Ranch'}
                         onChange={onChange}
                         />
-                        <input 
-                        type='radio'
-                        name='sauce'
-                        value='BBQ Sauce'
-                        checked={values.sauce === 'BBQ Sauce'}
-                        onChange={onChange}
-                        />
-                        <input 
-                        type='radio'
-                        name='sauce'
-                        value='Spinach Alfredo'
-                        checked={values.sauce === 'Spinach Alfredo'}
-                        onChange={onChange}
-                        />
                     </label>
+                    </div>
                     <label>
                         Add Toppings
                         <input 

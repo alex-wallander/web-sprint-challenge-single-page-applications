@@ -1,10 +1,11 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Link, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Form from './components/Form';
 import axios from 'axios';
 import * as yup from 'yup';
 import schema from './validation/formSchema';
+import './App.css'
 
 const initialValues = {
   name: '',
@@ -17,6 +18,7 @@ const initialValueErrors = {
 }
 
 const initialUser = [];
+
 
 
 export default function App() {
@@ -74,12 +76,21 @@ export default function App() {
           <Link to='/'>Help</Link>
         </div>
       </nav>
-      <Form 
-      values={formValues}
-      change={inputChange}
-      submit={formSubmit}
-      errors={formErrors}
-      />
+      
+      <Switch>
+        <Route path={'/pizza'}>
+          <Form 
+          values={formValues}
+          change={inputChange}
+          submit={formSubmit}
+          errors={formErrors}
+          />
+        </Route>
+        <Route path='/'>
+          <Home />
+        </Route>
+      </Switch>
+
       </div>
   )
 }

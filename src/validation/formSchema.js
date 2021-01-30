@@ -17,7 +17,7 @@ export default yup.object().shape({
     spinach: yup
     .boolean(),
     sauce: yup
-    .boolean(), 
+    .string(), 
     special: yup
     .string()   
 
